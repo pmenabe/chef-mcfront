@@ -11,6 +11,7 @@ const execShellCommand = require('../_utils').execShellCommand
  */
 const create = async function (microApp, branch, commit) {
   await execShellCommand(`cd ${CONFIG.BUILT_PATH}/${microApp.id}-${commit}/ && unset npm_config_prefix && . ~/.nvm/nvm.sh && nvm use ${microApp.node.label} && node -v && ${microApp.commadsToBuild}`)
+  await execShellCommand(`cd ../..`)
 }
 
 /**
